@@ -6,15 +6,19 @@ import random
 main = tk.Tk()
 canvas = tk.Canvas(main, width=800, height=600)
 main.geometry("800x600")
-
-circle1 = canvas.create_oval(375, 275, 425, 325, fill='red', outline='red', tags='start')
+colors = ['red', 'yellow', 'blue', 'green', 'black', 'magenta']
+c_x = random.randint(0,750)
+c_y = random.randint(0,550)
+c_r = 50
+c_color = random.choice(colors)
+circle1 = canvas.create_oval(c_x, c_y, c_x+c_r, c_y+c_r, fill=c_color, outline=c_color, tags='start')
 
 samples = []
+
 def create_circle():
     x = random.randint(0, 750)
-    y = random.randint(0, 50)
+    y = random.randint(0, 550)
     r = 50
-    colors = ['red', 'yellow', 'blue', 'green', 'black', 'magenta']
     color = random.choice(colors)
     global circle, start_t
     circle = canvas.create_oval(x, y, x+r, y+r,fill=color, outline=color, tags='circle')
@@ -29,7 +33,7 @@ def pressed1(event):
     
 
     if len(samples) == 10:
-        print(f'\nYour average reaction time: {sum(samples)/10}')
+        print(f'\nYour average reaction time: {sum(samples)/10} s')
         main.destroy()
 
 def start(event):
