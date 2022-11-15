@@ -31,7 +31,6 @@ def pressed1(event):
     samples.append(end_t-start_t)
     create_circle()
     
-
     if len(samples) == 10:
         print(f'\nYour average reaction time: {sum(samples)/10} s')
         main.destroy()
