@@ -7,10 +7,10 @@ main = tk.Tk()
 canvas = tk.Canvas(main, width=800, height=600)
 main.geometry("800x600")
 
+circle1 = canvas.create_oval(375, 275, 425, 325, fill='red', outline='red', tags='start')
 
 samples = []
-
-def createTarget():
+def create_circle():
     x = random.randint(0, 750)
     y = random.randint(0, 50)
     r = 50
@@ -18,21 +18,25 @@ def createTarget():
     color = random.choice(colors)
     global circle, start_t
     circle = canvas.create_oval(x, y, x+r, y+r,fill=color, outline=color, tags='circle')
-    start_t = time.time()
+    start_t = time.time()    
 
 def pressed1(event):
     end_t = time.time()
-    print(f'\nreaction time: {end_t-start_t:.4f} s')
     canvas.delete(circle)
-    print('Button-1 pressed at x = % d, y = % d'%(event.x, event.y))
+    print(f'\nreaction time: {end_t-start_t:.4f} s')
     samples.append(end_t-start_t)
-    createTarget()
+    create_circle()
+    
+
     if len(samples) == 10:
         print(f'\nYour average reaction time: {sum(samples)/10}')
         main.destroy()
 
+def start(event):
+    canvas.delete(circle1)
+    create_circle()
 
-createTarget()
+canvas.tag_bind('start', '<Button-1>', start)
 canvas.tag_bind('circle','<Button-1>', pressed1)
 
 canvas.pack()
