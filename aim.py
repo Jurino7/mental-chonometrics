@@ -2,7 +2,6 @@ import tkinter as tk
 import time
 import random
 
-
 main = tk.Tk()
 canvas = tk.Canvas(main, width=800, height=600)
 main.geometry("800x600")
