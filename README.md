@@ -1,6 +1,5 @@
 # reation_time
-Simple app for testing your reaction skills.
-Just click on first circle.
+Just simple apps for improving and traing your brain.
 
 Enjoy.
 
