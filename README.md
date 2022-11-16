@@ -1,5 +1,5 @@
 # reation_time
-Just simple apps for improving and traing your brain.
+Just simple app for testing zour reaction skills.
 
 Enjoy.
 
